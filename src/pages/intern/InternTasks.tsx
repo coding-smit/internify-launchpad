@@ -2,15 +2,20 @@ import InternLayout from "@/components/layouts/InternLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown, Clock, CheckCircle, XCircle, Upload, Calendar, FileText } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import { ChevronDown, Clock, CheckCircle, XCircle, Upload, Calendar, FileText, Timer, Award } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const weeklyTasks = [
   {
     week: 1,
     title: "Week 1: Introduction & Setup",
     status: "approved",
+    duration: "7 days",
+    estimatedHours: 8,
+    completedHours: 8,
     tasks: [
       {
         id: 1,
@@ -19,6 +24,8 @@ const weeklyTasks = [
         deadline: "Jan 20, 2024",
         status: "approved",
         submissionDate: "Jan 19, 2024",
+        estimatedTime: "4 hours",
+        actualTime: "3.5 hours",
       },
     ],
   },
@@ -26,6 +33,9 @@ const weeklyTasks = [
     week: 2,
     title: "Week 2: HTML & CSS Fundamentals",
     status: "approved",
+    duration: "7 days",
+    estimatedHours: 12,
+    completedHours: 12,
     tasks: [
       {
         id: 2,
@@ -34,6 +44,8 @@ const weeklyTasks = [
         deadline: "Jan 27, 2024",
         status: "approved",
         submissionDate: "Jan 26, 2024",
+        estimatedTime: "8 hours",
+        actualTime: "10 hours",
       },
     ],
   },
@@ -41,6 +53,9 @@ const weeklyTasks = [
     week: 3,
     title: "Week 3: Responsive Design",
     status: "pending",
+    duration: "7 days",
+    estimatedHours: 15,
+    completedHours: 0,
     tasks: [
       {
         id: 3,
@@ -48,6 +63,7 @@ const weeklyTasks = [
         description: "Create a fully responsive landing page using HTML, CSS, and JavaScript with modern design principles.",
         deadline: "Feb 5, 2024",
         status: "pending",
+        estimatedTime: "10 hours",
       },
     ],
   },
@@ -55,6 +71,9 @@ const weeklyTasks = [
     week: 4,
     title: "Week 4: JavaScript Basics",
     status: "locked",
+    duration: "7 days",
+    estimatedHours: 18,
+    completedHours: 0,
     tasks: [
       {
         id: 4,
@@ -62,6 +81,7 @@ const weeklyTasks = [
         description: "Implement form validation using vanilla JavaScript with real-time feedback.",
         deadline: "Feb 12, 2024",
         status: "locked",
+        estimatedTime: "12 hours",
       },
     ],
   },
@@ -69,6 +89,9 @@ const weeklyTasks = [
     week: 5,
     title: "Week 5: Final Project",
     status: "locked",
+    duration: "9 days",
+    estimatedHours: 25,
+    completedHours: 0,
     tasks: [
       {
         id: 5,
@@ -76,6 +99,7 @@ const weeklyTasks = [
         description: "Combine all learned skills to build a complete web application.",
         deadline: "Feb 19, 2024",
         status: "locked",
+        estimatedTime: "20 hours",
       },
     ],
   },
@@ -130,6 +154,13 @@ const InternTasks = () => {
     );
   };
 
+  // Calculate overall stats
+  const totalTasks = weeklyTasks.length;
+  const completedTasks = weeklyTasks.filter(w => w.status === "approved").length;
+  const totalHours = weeklyTasks.reduce((sum, w) => sum + w.estimatedHours, 0);
+  const completedHours = weeklyTasks.reduce((sum, w) => sum + w.completedHours, 0);
+  const progressPercent = (completedTasks / totalTasks) * 100;
+
   return (
     <InternLayout>
       <div className="space-y-6">
@@ -138,6 +169,88 @@ const InternTasks = () => {
           <p className="text-muted-foreground">Complete your weekly assignments to progress through the internship</p>
         </div>
 
+        {/* Task Summary Stats */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Card>
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Completed</p>
+                  <p className="text-xl font-bold">{completedTasks}/{totalTasks} Weeks</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                  <Timer className="w-5 h-5 text-success" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Hours Logged</p>
+                  <p className="text-xl font-bold">{completedHours}/{totalHours} hrs</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-warning/10 flex items-center justify-center">
+                  <Calendar className="w-5 h-5 text-warning" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Duration</p>
+                  <p className="text-xl font-bold">30 Days</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Progress</p>
+                  <p className="text-xl font-bold">{Math.round(progressPercent)}%</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Overall Progress Bar */}
+        <Card>
+          <CardContent className="pt-6">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-sm font-medium">Overall Task Completion</span>
+              <span className="text-sm text-muted-foreground">{completedTasks} of {totalTasks} weeks completed</span>
+            </div>
+            <Progress value={progressPercent} className="h-3" />
+            {progressPercent === 100 && (
+              <div className="mt-4 p-3 bg-success/10 rounded-lg flex items-center justify-between">
+                <div className="flex items-center gap-2 text-success">
+                  <Award className="w-5 h-5" />
+                  <span className="font-medium">All tasks completed! You're eligible for certification.</span>
+                </div>
+                <Button size="sm" asChild>
+                  <Link to="/intern/certificate">View Certificate</Link>
+                </Button>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Weekly Tasks */}
         <div className="space-y-4">
           {weeklyTasks.map((weekData) => (
             <Collapsible
@@ -161,6 +274,16 @@ const InternTasks = () => {
                       </div>
                       <div className="text-left">
                         <CardTitle className="text-base">{weekData.title}</CardTitle>
+                        <div className="flex items-center gap-3 mt-1">
+                          <span className="text-xs text-muted-foreground flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {weekData.duration}
+                          </span>
+                          <span className="text-xs text-muted-foreground flex items-center gap-1">
+                            <Timer className="w-3 h-3" />
+                            {weekData.estimatedHours} hrs estimated
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -174,6 +297,22 @@ const InternTasks = () => {
                 </CollapsibleTrigger>
                 <CollapsibleContent>
                   <CardContent className="pt-0 space-y-4">
+                    {/* Week Progress */}
+                    {weekData.status !== "locked" && (
+                      <div className="p-3 bg-secondary/20 rounded-lg">
+                        <div className="flex items-center justify-between text-sm mb-2">
+                          <span className="text-muted-foreground">Week Progress</span>
+                          <span className="font-medium">
+                            {weekData.completedHours}/{weekData.estimatedHours} hours
+                          </span>
+                        </div>
+                        <Progress 
+                          value={(weekData.completedHours / weekData.estimatedHours) * 100} 
+                          className="h-2" 
+                        />
+                      </div>
+                    )}
+
                     {weekData.tasks.map((task) => (
                       <div 
                         key={task.id} 
@@ -188,19 +327,33 @@ const InternTasks = () => {
                                 <Calendar className="w-4 h-4" />
                                 <span>Due: {task.deadline}</span>
                               </div>
+                              <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                                <Timer className="w-4 h-4" />
+                                <span>Est: {task.estimatedTime}</span>
+                              </div>
+                              {task.actualTime && (
+                                <div className="flex items-center gap-1 text-sm text-success">
+                                  <CheckCircle className="w-4 h-4" />
+                                  <span>Completed in {task.actualTime}</span>
+                                </div>
+                              )}
                               {task.submissionDate && (
                                 <div className="flex items-center gap-1 text-sm text-muted-foreground">
                                   <FileText className="w-4 h-4" />
                                   <span>Submitted: {task.submissionDate}</span>
                                 </div>
                               )}
+                            </div>
+                            <div className="mt-3">
                               {getStatusBadge(task.status)}
                             </div>
                           </div>
                           {task.status === "pending" && (
-                            <Button size="sm">
-                              <Upload className="w-4 h-4 mr-1" />
-                              Submit
+                            <Button size="sm" asChild>
+                              <Link to="/intern/submit">
+                                <Upload className="w-4 h-4 mr-1" />
+                                Submit
+                              </Link>
                             </Button>
                           )}
                         </div>
