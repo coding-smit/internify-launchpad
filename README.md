@@ -1,73 +1,112 @@
-# Welcome to your Lovable project
+# 🚀 Expernix
 
-## Project info
+<h3 align="center">Learn • Build • Experience</h3>
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+<p align="center">
+A project-based internship platform where students complete real-world tasks and earn verified certificates.
+</p>
 
-## How can I edit this code?
+<p align="center">
+  <img src="https://img.shields.io/badge/React-Frontend-blue" />
+  <img src="https://img.shields.io/badge/Node.js-Backend-green" />
+  <img src="https://img.shields.io/badge/Vite-Fast-yellow" />
+  <img src="https://img.shields.io/badge/License-MIT-purple" />
+</p>
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🌟 About Expernix
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Expernix is a modern internship platform that helps students gain **practical experience** by working on **real projects** instead of only theory.
 
-Changes made via Lovable will be committed automatically to this repo.
+Students:
+- Complete small tasks
+- Build real skills
+- Submit projects
+- Receive certificates & experience letters
 
-**Use your preferred IDE**
+Perfect for:
+✅ Students  
+✅ Freshers  
+✅ Resume building  
+✅ Skill development  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✨ Features
 
-Follow these steps:
+- 🔐 Student Authentication (Login / Signup)
+- 📚 Task-based Internship System
+- 📤 Project Submission Portal
+- 🏆 Auto Certificate Generator
+- 📜 Internship Completion Certificate
+- 💼 Experience Letter
+- 👨‍💻 Admin Dashboard
+- 💳 Payment Integration (₹100 certificate fee)
+- 📱 Responsive UI
+- ⚡ Fast Vite build
+- 🏢 MSME Registered Startup
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠 Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
+### 🎨 Frontend
 - React
-- shadcn-ui
+- Vite
 - Tailwind CSS
+- React Router
 
-## How can I deploy this project?
+### ⚙ Backend
+- Node.js + Express / Django
+- REST API
+- JWT Authentication
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### 🗄 Database
+- MongoDB / MySQL
 
-## Can I connect a custom domain to my Lovable project?
+### 🚀 Deployment
+- Hostinger
 
-Yes, you can!
+expernix/
+│
+├── frontend/ # React + Vite App
+├── backend/ # API Server
+├── certificates/ # Certificate templates
+├── assets/ # Images / logos
+├── .env
+└── README.md
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+👨‍💻 Author
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Smit Patel
+Full Stack Developer
+Founder – Expernix
+
+📬 Contact
+
+Email: patelsmit9328@gmail.com
+
+Website: https://expernix.in
+
+⭐ Support
+
+If you like this project:
+
+⭐ Star the repository
+🍴 Fork it
+📢 Share with friends
+
+🏁 License
+
+MIT License
+Free to use for learning and development.
+
+
+
+
+
+
+
+## 📂 Project Structure
+
