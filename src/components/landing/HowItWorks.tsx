@@ -21,8 +21,8 @@ const steps = [
   },
   {
     step: 4,
-    title: "Pay ₹100 Certification Fee",
-    description: "After completing all tasks, pay a nominal fee to unlock your certificate.",
+    title: "Free Internship with Certification",
+    description: "Complete all assigned tasks successfully to receive your internship completion certificate at no cost.",
     icon: CreditCard,
   },
   {

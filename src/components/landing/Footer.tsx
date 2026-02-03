@@ -12,7 +12,7 @@ const Footer = () => {
               <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
                 <Briefcase className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold">Internify</span>
+              <span className="text-xl font-bold">Expernix</span>
             </div>
             <p className="text-background/70 text-sm mb-6">
               Empowering the next generation of professionals through real-world internship experiences.
@@ -20,15 +20,15 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-background/70">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>support@internify.com</span>
+                <span>patelsmit9328@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>+91 98765 43210</span>
+                <span>+91 9328233295</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>Bangalore, India</span>
+                <span>Gujarat, India</span>
               </div>
             </div>
           </div>
@@ -38,9 +38,9 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3 text-sm text-background/70">
               <li>
-                <a href="#internships" className="hover:text-background transition-colors">
+                <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header" className="hover:text-background transition-colors">
                   Internships
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#how-it-works" className="hover:text-background transition-colors">
@@ -92,17 +92,17 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-3 text-sm text-background/70">
               <li>
-                <Link to="/contact" className="hover:text-background transition-colors">
+                <Link to="/" className="hover:text-background transition-colors">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/help" className="hover:text-background transition-colors">
+                <Link to="/" className="hover:text-background transition-colors">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link to="/verify" className="hover:text-background transition-colors">
+                <Link to="/" className="hover:text-background transition-colors">
                   Verify Certificate
                 </Link>
               </li>
@@ -113,7 +113,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-background/50">
-            © {new Date().getFullYear()} Internify. All rights reserved.
+            © {new Date().getFullYear()} Expernix. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-background/50">
             <span>Made with ❤️ in India</span>

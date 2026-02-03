@@ -14,7 +14,7 @@ const Navbar = () => {
             <div className="w-9 h-9 rounded-lg gradient-primary flex items-center justify-center">
               <Briefcase className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-foreground">Internify</span>
+            <span className="text-xl font-bold text-foreground">Expernix</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -32,10 +32,10 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" asChild>
-              <Link to="/admin/login">Admin Login</Link>
+              {/* <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">Intern Login</Link> */}
             </Button>
             <Button variant="hero" asChild>
-              <Link to="/apply">Apply Now</Link>
+              <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">Apply Now</Link>
             </Button>
           </div>
 

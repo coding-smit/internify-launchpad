@@ -34,13 +34,13 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up delay-200">
             <Button variant="hero" size="xl" asChild>
-              <Link to="/apply">
+              <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">
                 Apply Now
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
-              <Link to="/admin/login">Admin Login</Link>
+              <Link to="/">Admin Login</Link>
             </Button>
           </div>
 
