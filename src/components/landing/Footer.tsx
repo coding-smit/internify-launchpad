@@ -111,13 +111,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-background/50">
-            © {new Date().getFullYear()} Expernix. All rights reserved.
-          </p>
-           <p className="text-sm text-background/50">
-            MSME Registered | UDYAM-GJ-14-0068059
-          </p>
+       <div className="pt-8 mt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
+  <p className="text-xs md:text-sm text-white/60">
+    © {new Date().getFullYear()}{" "}
+    <span className="font-semibold text-white">Expernix</span>. All rights reserved.
+  </p>
+
+  <p className="text-xs md:text-sm text-white/60">
+    <span className="inline-block px-2 py-0.5 rounded-full bg-white/10 text-white/80 text-[11px] font-medium tracking-wide">
+      MSME Registered
+    </span>
+    <span className="ml-2 text-white/50">
+      UDYAM-GJ-14-0068059
+    </span>
+  </p>
+</div>
+
           <div className="flex items-center gap-6 text-sm text-background/50">
             <span>Made with ❤️ in India</span>
           </div>
