@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Upload, Link as LinkIcon, FileText, CheckCircle, Github, ExternalLink, Clock, Calendar } from "lucide-react";
+import { Upload, Link as LinkIcon, FileText, CheckCircle, Github, ExternalLink, Clock, Calendar, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
@@ -197,7 +197,7 @@ const InternSubmit = () => {
                   </div>
 
                   <Button type="submit" variant="hero" size="lg" className="w-full">
-                    <Github className="w-4 h-4 mr-2" />
+                    <Linkedin className="w-4 h-4 mr-2" />
                     Submit Project
                   </Button>
                 </form>

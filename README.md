@@ -85,7 +85,7 @@ Founder – Expernix
 
 📬 Contact
 
-Email: patelsmit9328@gmail.com
+Email: expernix.official@gmail.com
 
 Website: https://expernix.in
 
