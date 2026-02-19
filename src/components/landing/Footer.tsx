@@ -44,7 +44,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-background/70">
               <li>
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform"
+                  href="/apply"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-background transition-colors"
