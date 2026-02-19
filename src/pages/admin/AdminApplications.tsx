@@ -7,15 +7,23 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Search, Filter, Check, X, Eye, Mail } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
+import { useEffect } from "react";
 
-const applicationsData = [
-  { id: 1, name: "Priya Sharma", email: "priya@example.com", phone: "+91 98765 43210", role: "Web Development", duration: "30 days", college: "IIT Delhi", date: "Jan 28, 2024", status: "pending" },
-  { id: 2, name: "Rahul Kumar", email: "rahul@example.com", phone: "+91 98765 43211", role: "Python Development", duration: "45 days", college: "NIT Trichy", date: "Jan 28, 2024", status: "pending" },
-  { id: 3, name: "Anita Patel", email: "anita@example.com", phone: "+91 98765 43212", role: "Data Analyst", duration: "30 days", college: "BITS Pilani", date: "Jan 27, 2024", status: "approved" },
-  { id: 4, name: "Vikram Singh", email: "vikram@example.com", phone: "+91 98765 43213", role: "UI/UX Design", duration: "45 days", college: "IIM Bangalore", date: "Jan 27, 2024", status: "pending" },
-  { id: 5, name: "Meera Joshi", email: "meera@example.com", phone: "+91 98765 43214", role: "Web Development", duration: "30 days", college: "VIT Vellore", date: "Jan 26, 2024", status: "rejected" },
-  { id: 6, name: "Arjun Reddy", email: "arjun@example.com", phone: "+91 98765 43215", role: "Python Development", duration: "30 days", college: "SRM University", date: "Jan 26, 2024", status: "approved" },
-];
+
+interface Application {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  role: string;
+  duration: string;
+  college: string;
+  about: string;
+  applied_at: string;
+  status: string;
+}
+
 
 const getStatusBadge = (status: string) => {
   switch (status) {
@@ -32,8 +40,18 @@ const AdminApplications = () => {
   const { toast } = useToast();
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
-  const [applications, setApplications] = useState(applicationsData);
-
+const [applications, setApplications] = useState<Application[]>([]);
+useEffect(() => {
+  axios
+    .get("http://127.0.0.1:8000/api/applications/")
+    .then((response) => {
+      setApplications(response.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching applications:", error);
+    });
+}, []);
+   
   const filteredApplications = applications.filter((app) => {
     const matchesSearch = app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       app.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -41,26 +59,53 @@ const AdminApplications = () => {
     const matchesStatus = statusFilter === "all" || app.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
-
-  const handleApprove = (id: number) => {
-    setApplications((prev) =>
-      prev.map((app) => (app.id === id ? { ...app, status: "approved" } : app))
+//this is used for backend 
+ const handleApprove = async (id: number) => {
+  try {
+    await axios.patch(
+      `http://127.0.0.1:8000/api/applications/${id}/`,
+      { status: "approved" }
     );
+
+    setApplications((prev) =>
+      prev.map((app) =>
+        app.id === id ? { ...app, status: "approved" } : app
+      )
+    );
+
     toast({
       title: "Application Approved",
-      description: "The intern will receive an email notification.",
+      description: "Status updated successfully.",
     });
-  };
 
-  const handleReject = (id: number) => {
-    setApplications((prev) =>
-      prev.map((app) => (app.id === id ? { ...app, status: "rejected" } : app))
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+//this is used for backend
+ const handleReject = async (id: number) => {
+  try {
+    await axios.patch(
+      `http://127.0.0.1:8000/api/applications/${id}/`,
+      { status: "rejected" }
     );
+
+    setApplications((prev) =>
+      prev.map((app) =>
+        app.id === id ? { ...app, status: "rejected" } : app
+      )
+    );
+
     toast({
       title: "Application Rejected",
-      description: "The applicant has been notified.",
+      description: "Status updated successfully.",
     });
-  };
+
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <AdminLayout>
@@ -129,7 +174,9 @@ const AdminApplications = () => {
                       <TableCell>{app.role}</TableCell>
                       <TableCell>{app.duration}</TableCell>
                       <TableCell>{app.college}</TableCell>
-                      <TableCell>{app.date}</TableCell>
+                      <TableCell>
+                        {new Date(app.applied_at).toLocaleDateString()}
+                      </TableCell>
                       <TableCell>{getStatusBadge(app.status)}</TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end gap-2">

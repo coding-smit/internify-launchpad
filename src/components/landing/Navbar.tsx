@@ -35,7 +35,7 @@ const Navbar = () => {
               {/* <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">Intern Login</Link> */}
             </Button>
             <Button variant="hero" asChild>
-              <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">Apply Now</Link>
+              <Link to="/Apply">Apply Now</Link>
             </Button>
           </div>
 
@@ -75,10 +75,10 @@ const Navbar = () => {
               </a>
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button variant="ghost" asChild className="w-full">
-                  <Link to="/pages/NotFound.tsx">Admin Login</Link>
+                  <Link to="/Admin">Admin Login</Link>
                 </Button>
                 <Button variant="hero" asChild className="w-full">
-                  <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">Apply Now</Link>
+                  <Link to="/Apply">Apply Now</Link>
                 </Button>
               </div>
             </div>

@@ -93,8 +93,7 @@ const InternshipRoles = () => {
               </CardContent>
               <CardFooter>
                 <Button variant="default" className="w-full" asChild>
-                  <Link to="https://docs.google.com/forms/d/e/1FAIpQLScwwoGO2uGfPbMj3QhdTkTq8Zrh5Tvf3aIj8DpIj5p1hyM7tw/viewform?usp=header">Apply Now</Link>
-                  {/* <Link to={`/apply?role=${internship.id}`}>Apply Now</Link> */}
+                  <Link to={`/apply?role=${internship.id}`}>Apply Now</Link>
                 </Button>
               </CardFooter>
             </Card>

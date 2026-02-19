@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowLeft, Briefcase, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
+
 
 const internshipRoles = [
   { id: "web-development", name: "Web Development Internship" },
@@ -31,15 +33,35 @@ const Apply = () => {
     about: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
+  //this is axios for backend Connections
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const response = await axios.post(
+      "http://127.0.0.1:8000/api/applications/",
+      formData
+    );
+
+    console.log("Saved:", response.data);
+
     setIsSubmitted(true);
+
     toast({
       title: "Application Submitted!",
       description: "We'll review your application and get back to you soon.",
     });
-  };
+
+  } catch (error) {
+    console.error("Error:", error);
+
+    toast({
+      title: "Submission Failed",
+      description: "Something went wrong. Please try again.",
+    });
+  }
+};
+
 
   if (isSubmitted) {
     return (
