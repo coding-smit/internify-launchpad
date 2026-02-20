@@ -39,7 +39,7 @@ const Apply = () => {
 
   try {
     const response = await axios.post(
-      "http://127.0.0.1:8000/api/applications/",
+      "https://expernix.in/api/applications/",
       formData
     );
 
