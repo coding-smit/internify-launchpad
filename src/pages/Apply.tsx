@@ -39,7 +39,7 @@ const Apply = () => {
 
   try {
     const response = await axios.post(
-      "https://expernix.onrender.com/api/applications/",
+      "https://api.expernix.in/api/applications/",
       formData
     );
 
