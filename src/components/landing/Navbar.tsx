@@ -75,7 +75,7 @@ const Navbar = () => {
               </a>
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button variant="ghost" asChild className="w-full">
-                  <Link to="/Admin">Admin Login</Link>
+                  <Link to="/admin/login">Admin Login</Link>
                 </Button>
                 <Button variant="hero" asChild className="w-full">
                   <Link to="/Apply">Apply Now</Link>
