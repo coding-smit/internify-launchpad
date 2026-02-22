@@ -43,7 +43,7 @@ const AdminApplications = () => {
 const [applications, setApplications] = useState<Application[]>([]);
 useEffect(() => {
   axios
-    .get("https://expernix.in/api/applications/")
+    .get("https://api.expernix.in/api/applications/")
     .then((response) => {
       setApplications(response.data);
     })
@@ -63,7 +63,7 @@ useEffect(() => {
  const handleApprove = async (id: number) => {
   try {
     await axios.patch(
-      `https://expernix.in/api/applications/${id}/`,
+      `https://api.expernix.in/api/applications/${id}/`,
       { status: "approved" }
     );
 
@@ -87,7 +87,7 @@ useEffect(() => {
  const handleReject = async (id: number) => {
   try {
     await axios.patch(
-      `https://expernix.in/api/applications/${id}/`,
+      `https://api.expernix.in/api/applications/${id}/`,
       { status: "rejected" }
     );
 
